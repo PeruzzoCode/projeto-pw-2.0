@@ -1,6 +1,6 @@
 import './Header.css'
 
-function Header({ quantidade, mostrarCardapio, mostrarCarrinho }) {
+function Header({ quantidade, mostrarCardapio, mostrarCarrinho, mostrarLogin }) {
 
     return (
         <header className="titulo">
@@ -8,11 +8,11 @@ function Header({ quantidade, mostrarCardapio, mostrarCarrinho }) {
             <div className="logo-container">
 
                 <h1 className="logo-titulo">
-                    ✦ XPRESS FOOD ✦
+                      Peruzzo Food
                 </h1>
 
                 <p className="logo-subtitulo">
-                    ❖ Pediu? Chegou!
+                 Chegou!
                 </p>
 
             </div>
@@ -26,11 +26,18 @@ function Header({ quantidade, mostrarCardapio, mostrarCarrinho }) {
                     🍔 Cardápio
                 </button>
 
-                <button
+<button
                     className="btn-header btn-carrinho"
                     onClick={mostrarCarrinho}
                 >
                     🛒 Carrinho ({quantidade})
+                </button>
+
+                <button
+                    className="btn-header btn-login"
+                    onClick={mostrarLogin}
+                >
+                    👤 Login
                 </button>
 
             </nav>

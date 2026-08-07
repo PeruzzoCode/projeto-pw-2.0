@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Header from "./componentes/Header";
-import Login from "./componentes/Login";
+import LoginPage from "./componentes/LoginPage";
 import CardProduto from "./componentes/Card-prod";
-import Funcionario from "./componentes/Funcionario";
 import Carrinho from "./componentes/Carrinho";
 import Pedido from "./componentes/Pedido";
+import Footer from "./componentes/Footer";
 
 function App() {
 
@@ -163,11 +163,16 @@ function App() {
         quantidade={quantidadeCarrinho}
         mostrarCardapio={() => setPagina("cardapio")}
         mostrarCarrinho={() => setPagina("carrinho")}
+        mostrarLogin={() => setPagina("login")}
       />
 
       <div className="conteudo-principal">
 
         <main className="coluna-esquerda">
+
+          {pagina === "login" && (
+            <LoginPage voltar={() => setPagina("cardapio")} />
+          )}
 
           {pagina === "cardapio" && (
 
@@ -219,40 +224,11 @@ function App() {
             />
             )}
 
-        </main>
-
-        <aside className="coluna-direita">
-
-          <div className="login-sidebar">
-            <Login login="Login" />
-          </div>
-
-          <div className="funcionarios-container">
-
-            <h2 className="titulo-funcionarios">
-              Funcionários
-            </h2>
-
-            <div className="funcionarios-cards-wrapper">
-
-              {funcionarios.map(funcionario => (
-
-                <Funcionario
-                  key={funcionario.id}
-                  nome={funcionario.nome}
-                  cargo={funcionario.cargo}
-                  fotoUrl={funcionario.fotoUrl}
-                />
-
-              ))}
-
-            </div>
-
-          </div>
-
-        </aside>
+</main>
 
       </div>
+
+      <Footer funcionarios={funcionarios} />
 
     </div>
   );

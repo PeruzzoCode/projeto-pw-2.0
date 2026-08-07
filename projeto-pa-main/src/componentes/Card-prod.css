@@ -1,141 +1,102 @@
 .titulo-cardapio {
-    color: #1e293b;
-    font-size: 1.9rem;
-    font-weight: 700;
-    text-align: center;
-    margin: 20px 0 30px;
+  margin: 0 0 28px;
+  color: var(--carvao);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  letter-spacing: .03em;
+  text-align: center;
 }
 
-.produtos-container {
-    width: 100%;
-    margin: 30px 0;
+.titulo-cardapio::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin: 10px auto 0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--rubi), var(--mostarda));
 }
 
-.produtos-cards-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-    width: 100%;
-}
+.produtos-container { width: 100%; }
+
+.produtos-cards-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(225px, 1fr)); gap: 20px; }
 
 .produto-card {
-    background: #fff;
-    border-radius: 15px;
-    border: 1px solid #e2e8f0;
-    width: 280px;
-    padding: 18px;
-    box-sizing: border-box;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    box-shadow: 0 4px 12px rgba(0,0,0,.08);
-    transition: .3s;
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  border: 1px solid var(--borda);
+  border-radius: 20px;
+  background: var(--branco);
+  box-shadow: 0 8px 20px rgba(77,43,16,.07);
+  transition: transform .22s, box-shadow .22s;
 }
 
-.produto-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,.15);
-}
+.produto-card:hover { transform: translateY(-6px); box-shadow: 0 16px 30px rgba(216,31,38,.12); }
 
-.produto-imagem {
-    width: 100%;
-    height: 170px;
-    object-fit: cover;
-    border-radius: 12px;
-}
+.produto-imagem { width: 100%; height: 158px; border-radius: 13px; object-fit: cover; }
 
-.produto-card h3 {
-    margin: 15px 0 8px;
-    color: #1e293b;
-    font-size: 1.4rem;
-}
+.produto-card h3 { margin: 15px 2px 5px; color: var(--carvao); font-size: 1.2rem; font-weight: 800; }
 
 .categoria {
-    color: #f97316;
-    font-weight: bold;
-    margin-bottom: 8px;
+  color: var(--rubi);
+  font-size: .8rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 8px;
 }
 
 .preco {
-    color: #16a34a;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+  color: var(--mostarda-escuro);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
 }
 
-.descricao {
-    color: #64748b;
-    font-size: .9rem;
-    line-height: 1.5;
-    min-height: 70px;
-    margin-bottom: 20px;
-}
+.descricao { flex: 1; color: var(--cinza-texto); font-size: .9rem; line-height: 1.5; min-height: 70px; margin-bottom: 20px; }
 
-/* ========================= */
 /* CONTADOR */
-/* ========================= */
-
 .controle-quantidade {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
 .controle-quantidade button {
-    width: 38px;
-    height: 38px;
-    border: none;
-    border-radius: 50%;
-    background: #2563eb;
-    color: white;
-    font-size: 1.3rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .2s;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--borda);
+  border-radius: 50%;
+  background: #fff7ec;
+  color: var(--rubi);
+  font-size: 1.3rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: .2s;
 }
 
-.controle-quantidade button:hover {
-    background: #1d4ed8;
-    transform: scale(1.08);
-}
+.controle-quantidade button:hover { background: #ffe1d8; transform: scale(1.08); }
 
-.controle-quantidade span {
-    width: 30px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #1e293b;
-}
+.controle-quantidade span { width: 30px; font-size: 1.2rem; font-weight: 800; color: var(--carvao); text-align: center; }
 
-/* ========================= */
 /* BOTÃO CARRINHO */
-/* ========================= */
-
 .botao-carrinho {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-
-    background: #16a34a;
-    color: white;
-
-    font-size: 1rem;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: .25s;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--mostarda), var(--mostarda-escuro));
+  color: var(--carvao);
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: .25s;
+  box-shadow: 0 6px 16px rgba(245,179,1,.3);
 }
 
-.botao-carrinho:hover {
-    background: #15803d;
-}
+.botao-carrinho:hover { background: linear-gradient(135deg, #ffc220, var(--mostarda-escuro)); transform: translateY(-2px); }
 
-.botao-carrinho:active {
-    transform: scale(.98);
-}
+.botao-carrinho:active { transform: scale(.98); }

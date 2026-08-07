@@ -1,0 +1,56 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 200px);
+  padding: 30px 20px;
+}
+
+.btn-voltar {
+  align-self: flex-start;
+  margin-bottom: 24px;
+  padding: 10px 18px;
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  background: var(--branco);
+  color: var(--marrom);
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.btn-voltar:hover {
+  background: #fff0d9;
+  transform: translateX(-3px);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 38px 34px;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(77, 43, 16, .12);
+  text-align: center;
+}
+
+.login-titulo {
+  margin: 0 0 8px;
+  color: var(--carvao);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: .03em;
+}
+
+.login-sub {
+  margin: 0 0 26px;
+  color: var(--cinza-texto);
+  font-size: .95rem;
+}
+
+.login-card .login {
+  text-align: left;
+  padding: 0;
+}

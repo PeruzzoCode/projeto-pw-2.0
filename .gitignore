@@ -1,0 +1,7 @@
+# Dependências instaladas localmente
+node_modules/
+projeto-pa-main/node_modules/
+
+# Arquivos gerados pela build
+dist/
+projeto-pa-main/dist/

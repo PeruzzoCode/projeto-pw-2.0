@@ -96,11 +96,35 @@ function App() {
     }
   ];
 
-  const [pagina, setPagina] = useState("cardapio");
+  const [pagina, setPagina] = useState("login");
+  const [perfil, setPerfil] = useState(null);
   const [quantidadeCarrinho, setQuantidadeCarrinho] = useState(0);
   const [carrinho, setCarrinho] = useState([]);
   const [ultimaCompra, setUltimaCompra] = useState([]);
   const [totalCompra, setTotalCompra] = useState(0);
+
+  const usuarios = {
+    admin: { senha: "admin", perfil: "admin" },
+    cozinheiro: { senha: "cozinheiro", perfil: "cozinheiro" },
+    cliente: { senha: "cliente", perfil: "cliente" }
+  };
+
+  function entrar(usuario, senha) {
+    const conta = usuarios[usuario];
+
+    if (!conta || conta.senha !== senha) {
+      return false;
+    }
+
+    setPerfil(conta.perfil);
+    setPagina(conta.perfil === "cozinheiro" ? "pedido" : "cardapio");
+    return true;
+  }
+
+  function sair() {
+    setPerfil(null);
+    setPagina("login");
+  }
 
   function adicionarCarrinho(nome, preco, categoria, imagem, quantidade) {
 
@@ -159,22 +183,24 @@ function App() {
   return (
     <div className="app-container">
 
-      <Header
-        quantidade={quantidadeCarrinho}
-        mostrarCardapio={() => setPagina("cardapio")}
-        mostrarCarrinho={() => setPagina("carrinho")}
-        mostrarLogin={() => setPagina("login")}
-      />
+      {perfil && (
+        <Header
+          quantidade={quantidadeCarrinho}
+          perfil={perfil}
+          mostrarCardapio={() => setPagina("cardapio")}
+          mostrarCarrinho={() => setPagina("carrinho")}
+          mostrarPedidos={() => setPagina("pedido")}
+          sair={sair}
+        />
+      )}
 
       <div className="conteudo-principal">
 
         <main className="coluna-esquerda">
 
-          {pagina === "login" && (
-            <LoginPage voltar={() => setPagina("cardapio")} />
-          )}
+          {pagina === "login" && <LoginPage aoEntrar={entrar} />}
 
-          {pagina === "cardapio" && (
+          {perfil && pagina === "cardapio" && (
 
             <div className="produtos-container">
 
@@ -204,7 +230,7 @@ function App() {
 
           )}
 
-          {pagina === "carrinho" && (
+          {perfil && pagina === "carrinho" && (
 
             <Carrinho
             carrinho={carrinho}
@@ -215,7 +241,7 @@ function App() {
 
           )}
 
-          {pagina === "pedido" && ( 
+          {perfil && pagina === "pedido" && (
             <Pedido
               compra={ultimaCompra}
               total={totalCompra}
@@ -228,7 +254,7 @@ function App() {
 
       </div>
 
-      <Footer funcionarios={funcionarios} />
+      {perfil && <Footer funcionarios={funcionarios} />}
 
     </div>
   );

@@ -1,17 +1,10 @@
 import "./LoginPage.css";
 import Login from "./Login";
 
-function LoginPage({ voltar }) {
+function LoginPage({ aoEntrar }) {
 
     return (
         <div className="login-page">
-
-            <button
-                className="btn-voltar"
-                onClick={voltar}
-            >
-                ← Voltar
-            </button>
 
             <div className="login-card">
 
@@ -23,7 +16,7 @@ function LoginPage({ voltar }) {
                     Acesse sua conta para continuar.
                 </p>
 
-                <Login login="Login" />
+                <Login login="Login" aoEntrar={aoEntrar} />
 
             </div>
 

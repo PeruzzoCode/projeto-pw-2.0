@@ -4,5 +4,5 @@
 .login input:focus { border-color: var(--mostarda); box-shadow: 0 0 0 3px rgba(245,179,1,.18); }
 .login button { width: 100%; padding: 12px; border: 0; border-radius: 10px; background: linear-gradient(135deg, var(--rubi), var(--rubi-escuro)); color: #fff; font-weight: 800; cursor: pointer; transition: transform .2s, box-shadow .2s; box-shadow: 0 6px 16px rgba(216,31,38,.28); }
 .login button:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(216,31,38,.38); }
-.login a { margin-top: 18px; text-align: center; color: var(--rubi); font-size: .88rem; font-weight: 600; text-decoration: none; }
-.login a:hover { text-decoration: underline; }
+.login-erro { margin: -3px 0 12px; color: var(--rubi); font-size: .85rem; font-weight: 700; }
+.login-credenciais { margin: 18px 0 0; text-align: center; color: var(--cinza-texto); font-size: .78rem; line-height: 1.45; }
